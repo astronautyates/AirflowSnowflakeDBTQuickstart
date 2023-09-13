@@ -1,0 +1,72 @@
+[0m19:18:54.120923 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104d5b7f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1106af310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1106af130>]}
+
+
+============================== 19:18:54.124183 | 05033b89-e3dd-4cfa-a0d5-151991adf117 ==============================
+[0m19:18:54.124183 [info ] [MainThread]: Running with dbt=1.6.2
+[0m19:18:54.124526 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'version_check': 'True', 'profiles_dir': '/Users/gyates/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt init', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m19:19:04.523973 [debug] [MainThread]: Starter project path: /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/dbt/include/starter_project
+[0m19:19:04.530494 [info ] [MainThread]: 
+Your new dbt project "yatesproject" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m19:19:04.530858 [info ] [MainThread]: Setting up your profile.
+[0m19:19:04.531640 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No adapters available. Learn how to install an adapter by going to https://docs.getdbt.com/docs/connect-adapters#install-using-the-cli
+[0m19:19:04.532243 [debug] [MainThread]: Command `dbt init` failed at 19:19:04.532114 after 10.42 seconds
+[0m19:19:04.532576 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104d5b7f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1106af0a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1106aeda0>]}
+[0m19:19:04.532882 [debug] [MainThread]: Flushing usage events
+[0m21:44:29.561247 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106a1f820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c97280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c970d0>]}
+
+
+============================== 21:44:29.564281 | 8b798c00-9346-4002-b793-ea409b3f87ac ==============================
+[0m21:44:29.564281 [info ] [MainThread]: Running with dbt=1.6.2
+[0m21:44:29.564617 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': '/Users/gyates/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt deps', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m21:44:29.565169 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/gyates/Desktop/summitworkshop/dags/dbt/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m21:44:29.565575 [debug] [MainThread]: Command `dbt deps` failed at 21:44:29.565514 after 0.04 seconds
+[0m21:44:29.565773 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106a1f820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c97340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c96d40>]}
+[0m21:44:29.565968 [debug] [MainThread]: Flushing usage events
+[0m21:46:42.566973 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105207760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1114af370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1114af190>]}
+
+
+============================== 21:46:42.569313 | ce0ddc5a-9158-4ed3-bf97-4e7b9172a894 ==============================
+[0m21:46:42.569313 [info ] [MainThread]: Running with dbt=1.6.2
+[0m21:46:42.569852 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/gyates/.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt init dbt', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m21:46:47.275172 [error] [MainThread]: Encountered an error:
+
+[0m21:46:47.279053 [error] [MainThread]: Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/dbt/cli/requires.py", line 87, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/dbt/cli/requires.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/dbt/cli/main.py", line 468, in init
+    results = task.run()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/dbt/task/init.py", line 283, in run
+    project_name = self.get_valid_project_name()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/dbt/task/init.py", line 246, in get_valid_project_name
+    name = click.prompt("Enter a name for your project (letters, digits, underscore)")
+  File "/Users/gyates/Library/Python/3.10/lib/python/site-packages/click/termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+  File "/Users/gyates/Library/Python/3.10/lib/python/site-packages/click/termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m21:46:47.280345 [debug] [MainThread]: Command `dbt init` failed at 21:46:47.280137 after 4.72 seconds
+[0m21:46:47.280883 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105207760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1114afdc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1114aeec0>]}
+[0m21:46:47.281430 [debug] [MainThread]: Flushing usage events
