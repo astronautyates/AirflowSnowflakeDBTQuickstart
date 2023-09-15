@@ -1,22 +1,7 @@
 Overview
 ========
 
-Welcome to Astronomer! This project was generated after you ran 'astro dev init' using the Astronomer CLI. This readme describes the contents of the project, as well as how to run Apache Airflow on your local machine.
-
-Project Contents
-================
-
-Your Astro project contains the following files and folders:
-
-- dags: This folder contains the Python files for your Airflow DAGs. By default, this directory includes two example DAGs:
-    - `example_dag_basic`: This DAG shows a simple ETL data pipeline example with three TaskFlow API tasks that run daily.
-    - `example_dag_advanced`: This advanced DAG showcases a variety of Airflow features like branching, Jinja templates, task groups and several Airflow operators.
-- Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. If you want to execute other commands or overrides at runtime, specify them here.
-- include: This folder contains any additional files that you want to include as part of your project. It is empty by default.
-- packages.txt: Install OS-level packages needed for your project by adding them to this file. It is empty by default.
-- requirements.txt: Install Python packages needed for your project by adding them to this file. It is empty by default.
-- plugins: Add custom or community plugins for your project to this file. It is empty by default.
-- airflow_settings.yaml: Use this local-only file to specify Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project.
+In this virtual hands-on lab, you will follow a step-by-step guide to using Airflow with dbt to create data transformation job schedulers. This repo follows this guide: https://quickstarts.snowflake.com/guide/data_engineering_with_apache_airflow/index.html?index=..%2F..index#0
 
 Deploy Your Project Locally
 ===========================
@@ -38,12 +23,25 @@ Note: Running 'astro dev start' will start your project with the Airflow Webserv
 
 You should also be able to access your Postgres Database at 'localhost:5432/postgres'.
 
-Deploy Your Project to Astronomer
-=================================
+4. To set up your Snowflake Environment, first run the dbt creation script in include/creationscripts directory after editing it with your own password and then log in with the dbt_user it creates and run the following:
 
-If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to Astronomer documentation: https://docs.astronomer.io/cloud/deploy-code/
+CREATE OR REPLACE DATABASE DEMO_dbt
 
-Contact
-=======
+This will create a warehouse, user, and database for us to use for this project
 
-The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support.
+5. Next we'll create the tables we need for this project in our Snowflake Environment. To do this, log in as the dbt user and run the sql bookings1, bookings2, and customers statements from the include/creationscripts directory to create the bookings1, bookings2, and customers tables. 
+
+6. Now that we have our Snowflake environment set up, go back to your Airflow UI and create a new Snowflake connection called "snowflake_conn" with the credentials for the dbt user. Here's an example:
+
+{
+  "account": "account12345",
+  "warehouse": "dbt_dev_wh",
+  "database": "demo_dbt",
+  "region": "us-east-1",
+  "role": "dbt_dev_role",
+  "insecure_mode": false
+}
+
+7. Next, we'll also create some variables in the Airflow UI to store our dbt_user and password. The first variable will have the key of 'dbt_user' and value 'dbt_user'. The second variable will have the key of dbt_password and value of whatever password you set earlier. 
+
+8. Now you're ready to run your DAG! Open up the Airflow UI and activate/manually trigger the dbt Snowflake DAG!
