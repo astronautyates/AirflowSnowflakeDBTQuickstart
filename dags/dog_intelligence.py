@@ -10,7 +10,7 @@ import pandas as pd
 import pendulum
 
 
-@aql.run_raw_sql(conn_id="snowflake_conn", task_id="query_table", results_format="pandas_dataframe")
+@aql.run_raw_sql(conn_id="snowflake_default", task_id="query_table", results_format="pandas_dataframe")
 def query_table_func():
     return """
     SELECT * FROM DEMO.DEMO.DOG_INTELLIGENCE 
@@ -18,7 +18,7 @@ def query_table_func():
     WEIGHT_HIGH_LBS, REPS_UPPER, REPS_LOWER) IS NOT NULL
     """
 
-@aql.run_raw_sql(conn_id="snowflake_conn", task_id="transform_table", results_format="pandas_dataframe")
+@aql.run_raw_sql(conn_id="snowflake_default", task_id="transform_table", results_format="pandas_dataframe")
 def transform_table_func(query_table: Table):
     return """
     SELECT HEIGHT_LOW_INCHES, HEIGHT_HIGH_INCHES, WEIGHT_LOW_LBS, WEIGHT_HIGH_LBS,
@@ -46,7 +46,7 @@ def model_task_func(transform_table: pd.DataFrame):
     
     # split the data into training data (80%) and testing data (20%)
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.20, random_state=23
+        X, y, test_size=0.30, random_state=45
     )
     
     # standardize features
@@ -55,7 +55,7 @@ def model_task_func(transform_table: pd.DataFrame):
     X_test_s = scaler.transform(X_test)
     
     # train a RandomForestClassifier on the training data
-    model = RandomForestClassifier(max_depth=3, random_state=19)
+    model = RandomForestClassifier(max_depth=10, random_state=45)
     model.fit(X_train_s, y_train)
     
     # score the trained model on the testing data
@@ -76,12 +76,12 @@ default_args={
 
 @dag(
     default_args=default_args,
-    schedule="30 2,18 * * 1-5",
-    start_date=pendulum.from_format("2023-09-26", "YYYY-MM-DD").in_tz("UTC"),
+    schedule="0 9-23 * * *",
+    start_date=pendulum.from_format("2023-09-28", "YYYY-MM-DD").in_tz("UTC"),
     catchup=False,
     owner_links={
         "george.yates@astronomer.io": "mailto:george.yates@astronomer.io",
-        "Open in Cloud IDE": "https://cloud.astronomer.io/cl1ntvrrk411461gxsvvitduiy/cloud-ide/cln1wfamo00ge01mjncklrpag/cln1wfjze00a901nh7kg30054",
+        "Open in Cloud IDE": "https://cloud.astronomer.io/cl1ntvrrk411461gxsvvitduiy/cloud-ide/cln3i0svj00z601nhsfdwteoj/cln3i24mz00zc01nhn8ffk1xp",
     },
 )
 def dog_intelligence():
